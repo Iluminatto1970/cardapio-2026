@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id          String         @id @default(cuid())
+  name        String         @unique
+  displayName String?
+  order       Int            @default(0)
+  status      String         @default("Ativo")
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  items       ItemCategory[]
+}
+
+model Item {
+  id          String         @id @default(cuid())
+  name        String
+  description String?
+  priceRaw    String?
+  imageUrl    String?
+  sku         String?
+  notes       String?
+  extra       String?
+  status      String         @default("Ativo")
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  categories  ItemCategory[]
+}
+
+model ItemCategory {
+  id         String   @id @default(cuid())
+  itemId     String
+  categoryId String
+  item       Item     @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@unique([itemId, categoryId])
+}
+
+model ConfigEntry {
+  id        String   @id @default(cuid())
+  section   String
+  key       String
+  value     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([section, key])
+}
+
+model LegacyExtra {
+  id        String   @id @default(cuid())
+  kind      String
+  data      Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
