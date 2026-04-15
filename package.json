@@ -4,17 +4,19 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
+    "postinstall": "prisma generate",
     "import:legacy": "node scripts/import-legacy.js",
     "import:legacy:reset": "node scripts/import-legacy.js --reset"
   },
   "dependencies": {
+    "@prisma/client": "^5.22.0",
     "@phosphor-icons/react": "^2.1.10",
     "@radix-ui/react-dialog": "^1.1.6",
     "@radix-ui/react-dropdown-menu": "^2.1.6",
@@ -33,7 +35,6 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@prisma/client": "^5.22.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/qrcode": "^1.5.5",
