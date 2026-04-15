@@ -70,7 +70,7 @@ export default function LandingPage() {
             <Card>
               <CardContent className="pt-6">
                 <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-blue-100 text-blue-600">
-                  <QRCode className="h-7 w-7" />
+                  <QrCode className="h-7 w-7" />
                 </div>
                 <h3 className="mt-4 text-xl font-semibold">Zero impressão</h3>
                 <p className="mt-2 text-muted-foreground">
