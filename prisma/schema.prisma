@@ -57,7 +57,44 @@ model ConfigEntry {
 model LegacyExtra {
   id        String   @id @default(cuid())
   kind      String
-  data      Json
+  data      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Tenant {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  name      String
+  logoUrl   String?
+  phone     String?
+  address   String?
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  tenantId  String?
+  role      String   @default("user")
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Order {
+  id          String   @id @default(cuid())
+  tenantId    String
+  customerName String
+  customerPhone String
+  items       String
+  total       Float
+  status      String   @default("pending")
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
