@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { WhatsAppLogo, QRCode, ChartLineUp, DeviceMobile, ShieldCheck, Lightning } from "@phosphor-icons/react";
+import { WhatsappLogo, QrCode, ChartLineUp, DeviceMobile, ShieldCheck, Lightning } from "@phosphor-icons/react";
 
 export default function LandingPage() {
   return (
@@ -15,7 +15,7 @@ export default function LandingPage() {
           </div>
           <Button asChild>
             <a href="https://wa.me/5583987140791" target="_blank" rel="noreferrer">
-              <WhatsAppLogo className="mr-2 h-5 w-5" />
+              <WhatsappLogo className="mr-2 h-5 w-5" />
               Falar no WhatsApp
             </a>
           </Button>
@@ -39,7 +39,7 @@ export default function LandingPage() {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Button size="lg" asChild className="text-lg px-8 py-6">
               <a href="https://wa.me/5583987140791?text=Olá! Quero conhecer o Cardápio Digital" target="_blank" rel="noreferrer">
-                <WhatsAppLogo className="mr-2 h-6 w-6" />
+                <WhatsappLogo className="mr-2 h-6 w-6" />
                 Quero meu cardápio
               </a>
             </Button>
@@ -137,7 +137,7 @@ export default function LandingPage() {
               <div className="mt-8">
                 <Button size="lg" asChild className="text-lg px-10 py-6">
                   <a href="https://wa.me/5583987140791?text=Olá! Quero o Cardápio Digital com 30% OFF" target="_blank" rel="noreferrer">
-                    <WhatsAppLogo className="mr-2 h-6 w-6" />
+                    <WhatsappLogo className="mr-2 h-6 w-6" />
                     Garantir meu desconto
                   </a>
                 </Button>
